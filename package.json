@@ -1,15 +1,16 @@
 {
-  "name": "vite-project",
+  "homepage": "https://BoudaoudAyoub.github.io/Film",
+  "name": "Film",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
@@ -18,10 +19,6 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
     "tailwindcss": "^4.1.10"
-  },
-    "repository": {
-    "type": "git",
-    "url": "https://github.com/BoudaoudAyoub/Film.git"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

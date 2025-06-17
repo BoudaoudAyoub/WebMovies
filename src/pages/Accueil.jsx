@@ -90,13 +90,13 @@ const Accueil = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-center space-x-8 mb-8">
           <button 
-          onClick={() => navigate('/ajouter')}
+          onClick={() => navigate('ajouter')}
           className="flex items-center space-x-2 px-6 py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-all duration-200">
             <Plus size={20} />
             <span className="font-medium">Ajouter</span>
           </button>
           <button
-            onClick={() => navigate('/recherche')}
+            onClick={() => navigate('recherche')}
           className="flex items-center space-x-2 px-6 py-3 bg-white/20 rounded-lg hover:bg-white/30 transition-all duration-200">
             <Search size={20} />
             <span className="font-medium">Rechercher</span>
@@ -157,7 +157,7 @@ const Accueil = () => {
                 </div>
 
                 <button 
-                  onClick={() => window.location.href = `/film/${movie.id}`}
+                  onClick={() => window.location.href = `details/${movie.id}`}
                   className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold transform hover:scale-105"
                 >
                   Voir les détails
