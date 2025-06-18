@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Star, Calendar, Clock, Globe, Users, Award, Play, Heart, Bookmark } from 'lucide-react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const DetailsFilm = () => { 
 
   const { movieId } = useParams();
+  console.info(movieId);
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
   const [videos, setVideos] = useState([]);
@@ -12,7 +13,6 @@ const DetailsFilm = () => {
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
-  console.log(movieId)
 
   // Clé API TMDb - Remplacez par votre propre clé
   const API_KEY = '98eb4553eb509073548e11adac1efc53';
