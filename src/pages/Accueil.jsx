@@ -157,7 +157,7 @@ const Accueil = () => {
                 </div>
 
                 <button 
-                  onClick={() => window.location.href = `details/${movie.id}`}
+                  onClick={() => window.location.href = `movie`}
                   className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold transform hover:scale-105"
                 >
                   Voir les détails

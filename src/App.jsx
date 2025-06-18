@@ -3,7 +3,7 @@ import './App.css'
 import Accueil from "./pages/Accueil";
 import Recherche from "./pages/Recherche";
 import AjouterFilm from "./pages/AjouterFilm";
-import DetailsFilm from "./pages/DetailsFilm";
+import Movie from './pages/movie';
 
 function App() {
   return (
@@ -13,7 +13,9 @@ function App() {
           <Route path="Film" element={<Accueil />} />
           <Route path="Film/recherche" element={<Recherche />} />
           <Route path="Film/ajouter" element={<AjouterFilm />} />
-          <Route path="Film/details/:movieId" element={<DetailsFilm />} />
+          <Route path="Film/movie" element={<Movie />} />
+          {/* <Route path="Film/movie" element={<DetailsFilm />} /> */}
+          
         </Routes>
       </div>
     </Router>

@@ -166,7 +166,7 @@ const Recherche = () => {
         </p>
 
         <button 
-          onClick={() => window.location.href = `details/:${movie.id}`}
+          onClick={() => window.location.href = `movie`}
           className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
         >
           Voir les détails
