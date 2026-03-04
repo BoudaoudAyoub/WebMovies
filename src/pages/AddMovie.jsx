@@ -14,20 +14,20 @@ export default function AddMovie() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.titre.trim()) newErrors.titre = "Le titre est obligatoire";
-    else if (formData.titre.trim().length < 2) newErrors.titre = "Le titre doit contenir au moins 2 caractères";
+    if (!formData.titre.trim()) newErrors.titre = "The title is required";
+    else if (formData.titre.trim().length < 2) newErrors.titre = "The title must contain at least 2 characters";
 
-    if (!formData.description.trim()) newErrors.description = "La description est obligatoire";
-    else if (formData.description.trim().length < 10) newErrors.description = "Minimum 10 caractères";
-    else if (formData.description.trim().length > 1000) newErrors.description = "Maximum 1000 caractères";
+    if (!formData.description.trim()) newErrors.description = "The description is required";
+    else if (formData.description.trim().length < 10) newErrors.description = "Minimum 10 characters";
+    else if (formData.description.trim().length > 1000) newErrors.description = "Maximum 1000 characters";
 
     if (formData.dateSortie) {
       const selectedDate = new Date(formData.dateSortie);
       const currentDate = new Date();
       const minDate = new Date("1888-01-01");
 
-      if (selectedDate > currentDate) newErrors.dateSortie = "La date ne peut pas être dans le futur";
-      else if (selectedDate < minDate) newErrors.dateSortie = "La date semble incorrecte";
+      if (selectedDate > currentDate) newErrors.dateSortie = "The date cannot be in the future";
+      else if (selectedDate < minDate) newErrors.dateSortie = "The date seems incorrect";
     }
 
     setErrors(newErrors);
@@ -65,7 +65,7 @@ export default function AddMovie() {
         setSubmitSuccess(false);
       }, 1500);
     } catch {
-      setErrors({ submit: "Une erreur est survenue lors de la sauvegarde" });
+      setErrors({ submit: "An error occurred while saving the movie" });
     } finally {
       setIsSubmitting(false);
     }
@@ -79,15 +79,15 @@ export default function AddMovie() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white py-12">
+      <div className="bg-gradient-to-r from-[#002E50] to-[#1A1A1A] text-white py-12">
         <div className="container mx-auto px-4">
           <div className="flex items-center space-x-4 mb-4">
             <button
               onClick={() => navigate(-1)}
-              className="flex items-center space-x-2 bg-white/20 px-4 py-2 rounded-lg hover:bg-white/30 transition-all"
+              className="flex items-center cursor-pointer space-x-2 bg-white/20 px-4 py-2 rounded-lg hover:bg-white/30 transition-all"
             >
               <ArrowLeft className="w-5 h-5" />
-              <span>Retour</span>
+              <span>Back</span>
             </button>
           </div>
 
@@ -96,8 +96,8 @@ export default function AddMovie() {
               <Plus className="w-10 h-10" />
               <Film className="w-10 h-10" />
             </div>
-            <h1 className="text-4xl font-bold mb-2">Ajouter un Nouveau Film</h1>
-            <p className="text-xl opacity-90">Partagez vos découvertes cinématographiques</p>
+            <h1 className="text-4xl font-bold mb-2">Add a New Movie</h1>
+            <p className="text-xl opacity-90">Share your cinematic discoveries</p>
           </div>
         </div>
       </div>
@@ -111,8 +111,8 @@ export default function AddMovie() {
                   <Check className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-green-800">Film ajouté avec succès !</h3>
-                  <p className="text-green-600">Le film "{formData.titre}" a été sauvegardé.</p>
+                  <h3 className="text-lg font-semibold text-green-800">Movie added successfully!</h3>
+                  <p className="text-green-600">The movie "{formData.titre}" has been saved</p>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function AddMovie() {
                 <label htmlFor="titre" className="block text-sm font-semibold text-gray-700 mb-2">
                   <span className="flex items-center space-x-2">
                     <Film className="w-4 h-4" />
-                    <span>Titre du film</span>
+                    <span>Movie Title</span>
                     <span className="text-red-500">*</span>
                   </span>
                 </label>
@@ -183,8 +183,8 @@ export default function AddMovie() {
                 <label htmlFor="dateSortie" className="block text-sm font-semibold text-gray-700 mb-2">
                   <span className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4" />
-                    <span>Date de sortie</span>
-                    <span className="text-gray-500 text-xs">(optionnel)</span>
+                    <span>Release Date</span>
+                    <span className="text-gray-500 text-xs">(Optional)</span>
                   </span>
                 </label>
                 <input
@@ -219,17 +219,17 @@ export default function AddMovie() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-6 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all font-semibold disabled:opacity-50 flex items-center justify-center space-x-2"
+                  className="flex-1 bg-gradient-to-r from-[#002E50] to-[#1A1A1A] text-white py-3 cursor-pointer px-6 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all font-semibold disabled:opacity-50 flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
-                      <span>Sauvegarde...</span>
+                      <span>Save...</span>
                     </>
                   ) : (
                     <>
                       <Save className="w-5 h-5" />
-                      <span>Ajouter le film</span>
+                      <span>Add Movie</span>
                     </>
                   )}
                 </button>
@@ -240,7 +240,7 @@ export default function AddMovie() {
                   disabled={isSubmitting}
                   className="flex-1 sm:flex-none bg-gray-200 text-gray-700 py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors font-semibold disabled:opacity-50"
                 >
-                  Réinitialiser
+                  Reset
                 </button>
               </div>
             </form>
@@ -250,7 +250,7 @@ export default function AddMovie() {
             <div className="mt-12">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center space-x-2">
                 <Film className="w-6 h-6" />
-                <span>Films ajoutés récemment ({savedMovies.length})</span>
+                <span>Recently Added Movies ({savedMovies.length})</span>
               </h2>
 
               <div className="space-y-4">
